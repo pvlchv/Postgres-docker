@@ -1,0 +1,12 @@
+cd etc/postgres/14/main 
+sudo micro postgresql.conf
+установить listen_addresses = '*'
+
+поменять порт в той же папке в файле pg_hb.conf на 5432
+и поставить host  all  all 0.0.0.0/0 md5
+
+sudo service postgresql restart
+
+далее (если при создании сервера вылезает ошибка пароля постгрес)
+sudo -u postgres psql
+ALTER USER postgres with PASSWORD '123456';
